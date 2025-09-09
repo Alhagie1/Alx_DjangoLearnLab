@@ -3,7 +3,7 @@ Delete
 
 This is a process of removing a database object 
 command:
-
+from bookshelf.models import Book
 new_book = Book.object.get(publication_year = 1949)
 new_book.delete()
 where the first line identify the new_book with the attribute publication_year = 1949
