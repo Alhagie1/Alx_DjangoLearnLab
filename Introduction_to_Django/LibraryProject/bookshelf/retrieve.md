@@ -1,7 +1,8 @@
 
 Retrieving is showing all the details of the database objects created.
 
-python code:
+command:
+Book.objects.get(title = "1984")
  
 all_books = Book.objects.all()
 
