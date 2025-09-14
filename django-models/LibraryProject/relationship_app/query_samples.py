@@ -1,10 +1,11 @@
 
-from .models import Book, Librarian
+from asyncio import all_tasks
+from .models import Book, Librarian, Library
 
 book = Book.objects.filter(author = "NjolTech")
 
-all_books = Book.objects.all()
-print(f"The books in the library include: {all_books}")
+books = Library.objects.get(name= "library_name"), "books.all()"
+
 try:
    librarian = Librarian.objects.get(name = "John Rix")
 except Librarian.DoesNotExist:
