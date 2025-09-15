@@ -4,7 +4,7 @@ from .models import Book, Librarian, Library
 
 book = Book.objects.filter(author = "NjolTech")
 
-library = Library.objects.get(name="library_name")
+library = Library.objects.get(name="Public Libary")
 books = Library.books.all()
 
 try:
