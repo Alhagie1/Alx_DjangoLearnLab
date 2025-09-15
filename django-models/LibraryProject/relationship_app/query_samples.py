@@ -4,8 +4,8 @@ from .models import Book, Librarian, Library
 
 book = Book.objects.filter(author = "NjolTech")
 
-books = Library.objects.get(name= "library_name")
-books.all()
+library = Library.objects.get(name= "library_name")
+books = Library.books.all()
 
 try:
    librarian = Librarian.objects.get(name = "John Rix")
