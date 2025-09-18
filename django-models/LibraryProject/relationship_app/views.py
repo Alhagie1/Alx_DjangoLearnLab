@@ -60,7 +60,7 @@ def add_book(request):
 
 @permission_required(relationship_app.can_change_book)
 
-def can_change_book(request):
+def edit_book(request):
 
     return render, "relationship_app/can_change_book.html"
 
