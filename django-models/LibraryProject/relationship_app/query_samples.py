@@ -4,11 +4,11 @@ from .models import Book, Librarian, Library
 
 book = Book.objects.filter(author = "NjolTech")
 
-library = Library.objects.get(name="library_name")
+Library.objects.get(name="library_name")
 books = Library.books.all()
 
 try:
-   librarian = Librarian.objects.get(name="librarian_name")
+   Librarian.objects.get(name="librarian_name")
 except Librarian.DoesNotExist:
    print("model does not exist")
 except Librarian.MultipleObjectsReturned:
