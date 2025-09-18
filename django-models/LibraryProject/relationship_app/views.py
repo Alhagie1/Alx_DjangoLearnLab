@@ -6,6 +6,7 @@ from django.views.generic.detail import DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import permission_required
 def list_books(request):
     """List the details of the book"""
     all_books = Book.objects.all()
@@ -49,3 +50,20 @@ def librarian_view(request):
 @user_passes_test(is_member)
 def member_view(request):
     return render(request, 'relationship_app/member_view.html')
+
+@permission_required(Library.add_book)
+
+def add_book(request):
+    return render, "realtionship_app/add_book.html"
+
+@permission_required(Library.edit_book)
+
+def edit_book(request):
+
+    return render, "relationship_app/edit_book.html"
+
+@permission_required(Library.delete_book)
+
+def delete_book(request):
+
+    return render, "relationship_app/delete_book.html"
