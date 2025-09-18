@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
-from .models import Book, Library
+from .models import Book
+from .models import Library
 from django.views.generic import ListView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
