@@ -1,4 +1,6 @@
 from django.shortcuts import redirect, render
+
+import relationship_app
 from .models import Book
 from .models import Library
 from django.views.generic import ListView
@@ -51,19 +53,19 @@ def librarian_view(request):
 def member_view(request):
     return render(request, 'relationship_app/member_view.html')
 
-@permission_required(Library.add_book)
+@permission_required(relationship_app.can_add_book)
 
 def add_book(request):
     return render, "realtionship_app/add_book.html"
 
-@permission_required(Library.edit_book)
+@permission_required(relationship_app.can_edit_book)
 
-def edit_book(request):
+def can_edit_book(request):
 
-    return render, "relationship_app/edit_book.html"
+    return render, "relationship_app/can_edit_book.html"
 
-@permission_required(Library.delete_book)
+@permission_required(relationship_app.can_delete_book)
 
 def delete_book(request):
 
-    return render, "relationship_app/delete_book.html"
+    return render, "relationship_app/can_delete_book.html"
