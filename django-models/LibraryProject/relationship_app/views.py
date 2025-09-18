@@ -58,11 +58,11 @@ def member_view(request):
 def add_book(request):
     return render, "realtionship_app/add_book.html"
 
-@permission_required(relationship_app.can_edit_book)
+@permission_required(relationship_app.can_change_book)
 
-def can_edit_book(request):
+def can_change_book(request):
 
-    return render, "relationship_app/can_edit_book.html"
+    return render, "relationship_app/can_change_book.html"
 
 @permission_required(relationship_app.can_delete_book)
 
