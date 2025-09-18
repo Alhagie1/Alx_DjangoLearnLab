@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import Book
+from .models import Book, Library
 from django.views.generic import ListView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -20,6 +20,6 @@ def register(request):
     return render(request, 'relationship_app/register.html', {'form': form})
 class LibraryDetails(ListView):
     model = Book
-    template_name = "library_details.html"
+    template_name = "relationship_app/library_detail.html"
     context_object_name = "books"
     
