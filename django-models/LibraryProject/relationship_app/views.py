@@ -5,6 +5,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import user_passes_test
 def list_books(request):
     """List the details of the book"""
     all_books = Book.objects.all()
@@ -24,4 +25,27 @@ class LibraryDetails(ListView):
     model = Book
     template_name = "relationship_app/library_detail.html"
     context_object_name = "books"
-    
+
+def is_admin(user):
+    return user.userprofile.role == 'Admin'
+
+def is_librarian(user):
+    return user.userprofile.role == 'Librarian'
+
+def is_member(user):
+    return user.userprofile.role == 'Member'
+
+# Admin view - only accessible to Admin users
+@user_passes_test(is_admin)
+def admin_view(request):
+    return render(request, 'relationship_app/admin_view.html')
+
+# Librarian view - only accessible to Librarian users
+@user_passes_test(is_librarian)
+def librarian_view(request):
+    return render(request, 'relationship_app/librarian_view.html')
+
+# Member view - only accessible to Member users
+@user_passes_test(is_member)
+def member_view(request):
+    return render(request, 'relationship_app/member_view.html')
