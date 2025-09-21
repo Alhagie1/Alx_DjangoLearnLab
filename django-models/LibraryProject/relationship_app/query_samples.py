@@ -14,7 +14,7 @@ library_queries = [
 ]
 
 librarian_queries = [
-    "Librarian.objects.get(name='John')"
+    "Librarian.objects.get(library=)"
 ]
 
 try:
