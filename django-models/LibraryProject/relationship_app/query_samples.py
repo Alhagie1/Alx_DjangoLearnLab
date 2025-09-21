@@ -3,8 +3,9 @@ from asyncio import all_tasks
 from .models import Book, Librarian, Library
 
 # Query samples as strings in lists
-book_queries = [
-    "Book.objects.filter(author='NjolTech')"
+author_queries= [
+    "Author.objects.get(name=author_name)",
+    "objects.filter(author=author)"
 ]
 
 library_queries = [
