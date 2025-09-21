@@ -8,7 +8,7 @@ book_queries = [
 ]
 
 library_queries = [
-    "Library.objects.get(name='Main Library')", 
+    "Library.objects.get(name=library_name)", 
    "books.all()"
 ]
 
