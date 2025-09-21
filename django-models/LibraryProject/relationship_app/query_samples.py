@@ -2,13 +2,22 @@
 from asyncio import all_tasks
 from .models import Book, Librarian, Library
 
-book = Book.objects.filter(author = "NjolTech")
+# Query samples as strings in lists
+book_queries = [
+    "Book.objects.filter(author='NjolTech')"
+]
 
-Library.objects.get(name="library_name")
-books = Library.books.all()
+library_queries = [
+    "Library.objects.get(name='Main Library')", 
+    "Library.book_set.all()"
+]
+
+librarian_queries = [
+    "Librarian.objects.get(name='John')"
+]
 
 try:
-   Librarian.objects.get(name="librarian_name")
+   Librarian.objects.get(name="Josh")
 except Librarian.DoesNotExist:
    print("model does not exist")
 except Librarian.MultipleObjectsReturned:
