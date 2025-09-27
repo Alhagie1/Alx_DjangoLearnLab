@@ -8,6 +8,16 @@ class Book(models.Model):
     author = models.CharField(max_length=100)
     publication_year = models.IntegerField()
 
+class Post(models.Model):
+    class Meta:
+        permissions = [
+            ("can_view ", "can view"),
+            ("can_create", "can create"),
+            ("can_edit", "can edit"),
+            ("can_delete", "can delete"),
+
+        ]
+    
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE) 
     role = models.CharField(max_length= 100, choices = Role_Choices)
@@ -44,9 +54,5 @@ class CustomUserManager(BaseUserManager):
         if extra_fields.get("is_superuser") is not True:
             raise ValueError("superuser must get is_superuser = True")
         return self.create_superuser(email, password, **extra_fields)
-    
-
-
-
 
 

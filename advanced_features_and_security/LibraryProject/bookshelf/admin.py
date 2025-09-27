@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Book,CustomUser
-
+from django.contrib.auth.models import Permission, Group
+from django.contrib.contenttypes.models import ContentType
 class BookAdmin(admin.ModelAdmin):
     list_display = ["title", "author", "publication_year"]
     list_filter = ["publication_year"]
@@ -18,3 +19,6 @@ class CustomUserAdmin(UserAdmin):
     )
 
 admin.site.register(CustomUser, CustomUserAdmin)
+
+Editor_Group, created = Group.objects.get_or_create(name = "Editor")
+post_contenttypes = ContentType.objects.get(app_level = "bookshelf",model = "Post")
