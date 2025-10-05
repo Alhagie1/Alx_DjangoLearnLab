@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Logout{% endblock %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% block content %}
+<h2>Logout</h2>
+<p>Are you sure you want to logout?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, Logout</button>
+</form>
+<p class="text-center mt-1">
+    <a href="{% url 'home' %}" class="link">Cancel</a>
+</p>
