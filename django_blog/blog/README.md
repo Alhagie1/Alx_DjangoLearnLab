@@ -16,3 +16,18 @@ The views.py file consist of some of view functions
 login_view(), logout(), register_view() and profile_view()
 which handle user login, logout, user registration and  user profile management.
 
+
+Blog Post Management:
+
+Class Base Views:
+PostCreateView,
+PostListview,
+PostUpdateView,
+PostDeleteView.
+
+
+It involves the CRUD operations 
+
+A login user can create post, edit post and delete post
+
+A normal user can view posts from PostListView class

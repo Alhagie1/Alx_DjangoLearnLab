@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if post %}Edit Post{% else %}Create Post{% endif %}</title>
+    <link rel="stylesheet" href="{% static, 'css/styles.css'%}">
+</head>
+<body>
+    <h1>{% if post %}Edit Post{% else %}Create New Post{% endif %}</h1>
+    
+    <!-- Show error messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <!-- The form -->
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        
+        <!-- Show form errors -->
+        {% if form.errors %}
+            <div class="errors">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        
+        <!-- Form fields -->
+        <div class="form-group">
+            <label>Title:</label>
+            {{ form.title }}
+        </div>
+        
+        <div class="form-group">
+            <label>Content:</label>
+            {{ form.content }}
+        </div>
+        
+        <div class="form-group">
+            <label>Category:</label>
+            {{ form.category }}
+        </div>
+        
+        <button type="submit">
+            {% if post %}Update Post{% else %}Create Post{% endif %}
+        </button>
+        <a href="{% url 'blog:home' %}">Cancel</a>
+    </form>
+</body>
+</html>

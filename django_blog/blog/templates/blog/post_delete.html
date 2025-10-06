@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Post</title>
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+</head>
+<body>
+    <h1>Are You Sure?</h1>
+    <p>Do you really want to delete "<strong>{{ post.title }}</strong>"?</p>
+    <p>This action cannot be undone!</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn-danger">Yes, Delete It</button>
+        <a href="{% url 'blog:post-detail' post.id %}" class="btn-cancel">No, Go Back</a>
+    </form>
+</body>
+</html>
